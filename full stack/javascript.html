@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Portfolio Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ronit Lamichhane</a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="menu" class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="fullstack.html">Full Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="html.html">HTML</a></li>
+          <li class="nav-item"><a class="nav-link" href="css.html">CSS</a></li>
+          <li class="nav-item"><a class="nav-link" href="bootstrap.html">Bootstrap</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <section class="section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6 reveal">
+            <p class="kicker">Section Five</p>
+            <h1 class="display-title">JavaScript makes it <span class="gradient-text">move</span>.</h1>
+            <p class="lead-text">
+              JavaScript adds interaction, logic, events, DOM changes, and dynamic behaviour to the browser.
+            </p>
+
+            <div class="hero-actions">
+              <button onclick="changeMessage()" class="btn-glow">Run JavaScript</button>
+              <button onclick="changeTheme()" class="btn-ghost">Change Theme</button>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal delay-1">
+            <div class="glass-panel p-3 tilt">
+              <img class="rounded-5" src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80" alt="JavaScript programming code">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container">
+        <div class="content-grid">
+          <div class="content-card reveal">
+            <h3>Explanation</h3>
+
+            <p>
+              JavaScript is a programming language that adds interactivity and dynamic behaviour to websites. HTML provides
+              the structure of a page and CSS controls how it looks, but JavaScript allows the page to respond to user
+              actions. It can react when a user clicks a button, types into a form, scrolls through a page, submits
+              information, opens a menu, or interacts with an animation. JavaScript is one of the most important
+              technologies in full stack development because it can be used on both the front end and the back end. In the
+              browser, JavaScript can update content without reloading the page. On the server, environments such as
+              Node.js allow JavaScript to handle back-end logic.
+            </p>
+
+            <p>
+              In front-end development, JavaScript often works with the Document Object Model, also called the DOM. The DOM
+              represents the web page as objects that JavaScript can select and change. For example, JavaScript can find a
+              paragraph by its id and replace its text, add a class to an element, validate a form, or create interactive
+              effects. In this portfolio, JavaScript is used to create scroll reveal animations, animated card tilt effects,
+              a moving visual object, a theme-changing button, and a text-changing demonstration. These features show that
+              JavaScript makes a website feel alive and responsive. A professional website often depends on JavaScript to
+              improve user experience, guide interaction, and make content more engaging. Understanding JavaScript is
+              therefore essential for anyone who wants to become a full stack developer.
+            </p>
+          </div>
+
+          <div class="content-card reveal delay-1">
+            <h3>Interactive JavaScript Demonstration</h3>
+
+            <div class="js-stage">
+              <p id="jsMessage">
+                Click the button above to make JavaScript change this text. The animated ball is also controlled visually
+                to demonstrate a dynamic, modern interface.
+              </p>
+              <div class="js-ball"></div>
+            </div>
+
+            <div class="demo-panel">
+              <h3>Example Code</h3>
+              <div class="browser-mock">
+                <div class="browser-top"><span></span><span></span><span></span></div>
+                <pre class="code"><code>function changeMessage() {
+  document.getElementById("jsMessage").textContent =
+    "JavaScript changed the page dynamically.";
+}
+
+function changeTheme() {
+  document.body.classList.toggle("theme-flash");
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="demo-panel">
+              <h3>Event Listener Example</h3>
+              <div class="browser-mock">
+                <div class="browser-top"><span></span><span></span><span></span></div>
+                <pre class="code"><code>document.querySelector(".btn-ghost").addEventListener("click", function() {
+  changeTheme();
+});</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container">
+        <div class="content-grid">
+          <div class="content-card reveal">
+            <h3>JavaScript concepts</h3>
+            <p>
+              JavaScript can modify the DOM, handle user input, and fetch data from servers. It is also used to create
+              animations, validate forms, and load content without refreshing the page.
+            </p>
+          </div>
+
+          <div class="content-card reveal delay-1">
+            <h3>JavaScript Example Code</h3>
+            <div class="browser-mock">
+              <div class="browser-top"><span></span><span></span><span></span></div>
+              <pre class="code"><code>const button = document.querySelector('.btn-glow');
+button.addEventListener('click', () => {
+  alert('Button clicked!');
+});
+
+fetch('/api/data')
+  .then(response =&gt; response.json())
+  .then(data =&gt; console.log(data));</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <h2>CET138 Full Stack Development ePortfolio</h2>
+      <a href="index.html">Back to Home</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
