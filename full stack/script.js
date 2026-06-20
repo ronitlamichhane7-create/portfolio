@@ -1,35 +1,47 @@
-const revealItems = document.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
+  const revealItems = document.querySelectorAll(".reveal");
+  const tiltCards = document.querySelectorAll(".tilt");
+  const messageButton = document.querySelector("button[data-js-action='change-message']");
+  const themeButton = document.querySelector("button[data-js-action='change-theme']");
 
-function revealOnScroll() {
-  revealItems.forEach((item) => {
-    const itemTop = item.getBoundingClientRect().top;
+  function revealOnScroll() {
+    revealItems.forEach((item) => {
+      const itemTop = item.getBoundingClientRect().top;
 
-    if (itemTop < window.innerHeight - 90) {
-      item.classList.add("visible");
-    }
+      if (itemTop < window.innerHeight - 90) {
+        item.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+  revealOnScroll();
+
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    });
   });
-}
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+  if (messageButton) {
+    messageButton.addEventListener("click", changeMessage);
+  }
 
-const tiltCards = document.querySelectorAll(".tilt");
-
-tiltCards.forEach((card) => {
-  card.addEventListener("mousemove", (event) => {
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-
-    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0)";
-  });
+  if (themeButton) {
+    themeButton.addEventListener("click", changeTheme);
+  }
 });
 
 function changeMessage() {
